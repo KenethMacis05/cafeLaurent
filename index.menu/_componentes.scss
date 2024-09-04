@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Tilt+Warp&display=swap');
+$color-primario: #562B00;
+$color-secundario: #b85456;
+$color-terciario: #ffbcbe;
+//Estilos a los textos
+h2{
+    color: $color-primario;
+    font-style: italic;
+}
+p{
+    text-align: justify;
+    color: $color-primario;
+}
+//Imagenes de fondo
+@mixin imagenes-de-decoracion{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    z-index: -5;
+    opacity: 0.5;
+    animation: ilustrationAnimate ease-in-out 1s infinite alternate;
+}
+
+.sec-imagenes-de-decoracion{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    z-index: -10;
+    opacity: 0.5;
+    .fondo{
+        @include imagenes-de-decoracion();
+        top: 370px;
+        right: 500px;
+    }
+    .fondo2{
+        @include imagenes-de-decoracion();
+        top: 90px;
+        left: 900px;
+    }
+    .fondo3{
+        @include imagenes-de-decoracion();
+        top: 10px;
+        left: 30px;
+    }
+    .fondo4{
+        @include imagenes-de-decoracion();
+        top: 400px;
+        left: 300px;
+    }
+    .fondo5{
+        @include imagenes-de-decoracion();
+        top: 530px;
+        right: 0px;
+    }
+    .fondo6{
+        @include imagenes-de-decoracion();
+        top: 300px;
+        right: 800px;
+    }
+    .fondo7{
+        @include imagenes-de-decoracion();
+        top: 30px;
+        right: 100px;
+    }
+    .fondo8{
+        @include imagenes-de-decoracion();
+        top: 530px;
+        left: 100px;
+    }
+    .fondo9{
+        @include imagenes-de-decoracion();
+        top: 200px;
+        left: 30px;
+    }
+}
+//Encabezado
+.logo1{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+    a{
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.logo2{
+    width: 60%;
+    height: auto;
+    margin-bottom: 25px;
+
+    a{
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+//Localizacion
+.mapa{
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    .mapa-iframe{
+        width: 100%;
+        
+        iframe{
+            width: 100%;
+            height: 450px;
+            border-radius: 15px ;
+            border: 3px solid crimson;
+            box-shadow: 2px 2px 30px rgba(186, 52, 201, 0.413);
+        }
+    }
+}
+//Footer
+.link-pie a {
+    color: #562B25; font-family: "Roboto', sans-serif"; font-size: 2em;
+
+    &:visited {color:#562B25;}
+    &:hover {color: brown;}
+    &:active {color: brown;}
+}
+//Redes sociales
+.redes-sociales{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    gap: 10px;
+    z-index: 20;
+    .contenedor-icons{
+        background-color: $color-secundario;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #562B00;
+        
+        &:hover{transform: scale(1.20);}
+        &:active{background-color: #562B00;}
+        a[title="Home"]{
+            color: pink;
+            font-size: 2rem;
+        }
+        }
+    }
+
+@media(max-width: 600px) {
+    .logo1 {
+        width: 130px;
+        height: 100px;
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+    .logo2 {
+        width: auto;
+        height: 110px;
+        margin-bottom: 15px;
+    }
+}
+@media(max-width: 1227px){
+    .mona-china{
+        display: flex;
+        justify-content: end;
+        width: 100%; 
+    }
+}
+@media(max-width: 768px){
+    .logo1{
+        width: 20%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+    .logo2{
+        width: 80%;
+    }
+}
+@keyframes ilustrationAnimate {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.04);
+    }
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding:1rem 4rem;
+    margin-bottom: 1.5rem;
+    
+    #search-input {
+        max-width: 250px;
+        max-height: 40px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 1rem;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #b8545650;
+        color: $color-primario;
+
+        &:focus{
+            box-shadow: 2px 2px 30px rgb(186 52 201 / 41%);
+            border: 1px solid crimson;
+        }
+    }
+    #search-button {
+        width: 80px;
+        height: 40px;
+        margin-left: 10px;
+        border-radius: 20px;
+        border: 1px solid $color-secundario;
+        outline: none;
+        color: $color-primario;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+        &:active{
+            box-shadow: 2px 2px 30px rgb(186 52 201 / 41%);
+            border: 1px solid crimson;
+            background-color: #b8545650;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,234 @@
+@use "componentes";
+@mixin hover-active{
+    &:hover {
+        color: componentes.$color-primario;
+        transition: color 1s;
+    }
+
+    &:active {
+        color: pink;
+    }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252, 203, 212);
+    z-index: 9999;
+    
+    #loader {
+        border: 8px solid componentes.$color-secundario;
+        border-top: 8px solid rgb(235, 163, 175);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s ease-in-out infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -30px;
+        margin-left: -30px;
+    }
+}
+
+/*cuerpo de la pagina*/
+body {
+    background: linear-gradient(100deg, rgb(235, 163, 175) 0%, white 50%, pink 100%);
+    display: block;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #ff000069;
+}
+
+/*cabezera de la pagina*/
+header {
+    background-image: url(../img/encabezado.png);
+    background-size: 100% 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.menu-de-la-cafeteria {
+    width: 100%;
+    text-align: center;
+    
+    .contenenor-menu{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        img{
+            width: 250px;
+        }
+    }
+    .desc{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 2rem;
+        p{
+            max-width: 700px;
+        }
+    }
+    .galeria {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+        ;
+        box-sizing: border-box;
+        margin-top: 2rem;
+
+        figure {
+            margin-bottom: 2rem;
+
+            img {
+                width: 300px;
+                height: 200px;
+                border-radius: 15px;
+                border: 5px solid componentes.$color-primario;
+                margin-bottom: 1rem;
+
+                &:hover {
+                    cursor: pointer;
+                    border-color: componentes.$color-secundario;
+                    transition: border 0.5s;
+                }
+
+                &:active {
+                    border-color: componentes.$color-primario;
+                }
+            }
+
+            figcaption {
+                font-style: italic;
+                color: componentes.$color-secundario;
+                font-size: 1rem;
+            }
+
+            &:hover {
+                animation: ilustrationAnimate ease-in-out 1s infinite alternate;
+            }
+        }
+    }
+}
+.navegacion-de-paginas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    a {
+        i {
+            font-size: 3rem;
+            color: componentes.$color-secundario;
+            @include hover-active();
+            
+        }
+    }
+
+    div {
+        height: 50px;
+        background-color: #b8545635;
+        border-radius: 15px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        a {
+            text-decoration: none;
+            span {
+                background-color: componentes.$color-terciario;
+                color: componentes.$color-primario;
+                border-radius: 10px;
+                padding: 2px 10px;
+
+                i{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    /*pie de pagina*/
+    position: relative;
+    background-color: #ffbcbe;
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border-top: 6px double #562B25;
+
+    .info-pie-de-pagina {
+        position: relative;
+        z-index: 10;
+    }
+
+    #img-pie1 {
+        position: absolute;
+        top: 20px;
+        right: 100px;
+    }
+
+    #img-pie2 {
+        position: absolute;
+        top: 80px;
+        right: 500px;
+    }
+
+    #img-pie3 {
+        position: absolute;
+        top: 190px;
+        right: 280px;
+    }
+
+    #img-pie4 {
+        position: absolute;
+        bottom: 15px;
+        right: 60px;
+    }
+
+    .link-pie {
+        background-color: #bc7879;
+        text-align: center;
+        margin-top: 6px;
+        border-style: groove;
+        padding: 6px;
+        width: auto;
+    }
+}
+
+.direcciones-del-local {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .contenedor-mapa {
+        margin: auto;
+    }
+}
